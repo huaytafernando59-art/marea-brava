@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marea Brava - Sánguches Marinos Peruanos</title>
+    <style>
+        :root {
+            --bg-color: #0b131a;
+            --card-bg: #121e2a;
+            --text-color: #ffffff;
+            --accent-color: #c5a880;
+            --text-muted: #a0aec0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+            background: linear-gradient(180deg, #070d12 0%, #0b131a 100%);
+        }
+
+        header h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed rgba(197, 168, 128, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(197, 168, 128, 0.1);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Marea Brava</h1>
+        <p>Sánguches Marinos Peruanos • Frescura y Sabor al Instante</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Sánguche de Pejerrey Arrebozado</h3>
+                    <p>Pejerreyes crocantes dorados a la perfección, acompañados de salsa criolla con bastante limón y una suave mayonesa de la casa.</p>
+                    <p class="price">S/ 14.00</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Sánguche de Chicharrón de Calamar</h3>
+                    <p>Anillos de calamar crujientes en su punto exacto, montados sobre una base de lechuga orgánica, crema tártara artesanal y zarza criolla.</p>
+                    <p class="price">S/ 16.00</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Sánguche Marea Brava</h3>
+                    <p>La especialidad de la casa: mixtura marina salteada al wok con cebolla y tomate, sazón secreta y un toque sutil de ají amarillo.</p>
+                    <p class="price">S/ 18.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Marea Brava - Sánguches Marinos Peruanos. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

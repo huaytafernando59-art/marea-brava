@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marea Brava - Sánguches Marinos Peruanos</title>
+    <style>
+        :root {
+            --bg-color: #0b141d;
+            --card-bg: #111b24;
+            --text-color: #ffffff;
+            --accent-color: #d4b170;
+            --text-muted: #94a3b8;
+            --border-color: rgba(212, 177, 112, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(180deg, #060b10 0%, #0b141d 100%);
+            position: relative;
+        }
+
+        header .badge {
+            border: 1px solid var(--accent-color);
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        header .subtitle {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header .slogan {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .card-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .card .price {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.15rem;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        /* Bloques Inferiores */
+        .menu-bottom {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .menu-list {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .menu-list h2 {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .menu-list .subtitle-list {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.08);
+            padding-bottom: 5px;
+        }
+
+        .list-item .item-name {
+            color: #e2e8f0;
+            text-transform: uppercase;
+        }
+
+        .list-item .item-price {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .drinks-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .drinks-content {
+            display: flex;
+            gap: 15px;
+        }
+
+        .drinks-text {
+            flex-grow: 1;
+        }
+
+        .drink-img {
+            width: 90px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #060b10;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer .phone {
+            color: var(--accent-color);
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">Sabor 100% Marino</div>
+        <h1>Marea Brava</h1>
+        <div class="subtitle">Sánguches Marinos Peruanos</div>
+        <div class="slogan">El sabor del mar entre dos panes</div>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">Sánguches</h2>
+        <div class="grid">
+            
+            <!-- El Rey Camarón -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&q=80" alt="El Rey Camarón" class="card-img">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>El Rey Camarón</h3>
+                        <span class="price">S/ 28.00</span>
+                    </div>
+                    <p>Camarón salteado al ajillo, crema de palta, lechuga, cebolla encurtida y salsa de la casa.</p>
+                </div>
+            </div>
+
+            <!-- El Capitán Ceviche -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=500&q=80" alt="El Capitán Ceviche" class="card-img">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>El Capitán Ceviche</h3>
+                        <span class="price">S/ 27.00</span>
+                    </div>
+                    <p>Pescado fresco estilo ceviche, crema de leche de tigre, camote crocante y culantro.</p>
+                </div>
+            </div>
+
+            <!-- La Ola Norteña -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?w=500&q=80" alt="La Ola Norteña" class="card-img">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>La Ola Norteña</h3>
+                        <span class="price">S/ 26.00</span>
+                    </div>
+                    <p>Pescado crocante, coleslaw, tártara de limón y ají amarillo en pan artesanal.</p>
+                </div>
+            </div>
+
+            <!-- La Perla Marina -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=500&q=80" alt="La Perla Marina" class="card-img">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>La Perla Marina</h3>
+                        <span class="price">S/ 29.00</span>
+                    </div>
+                    <p>Cangrejo cremoso, palta, limón, apio fresco y toque de ají limo.</p>
+                </div>
+            </div>
+
+            <!-- Calamar Rebelde -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500&q=80" alt="Calamar Rebelde" class="card-img">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Calamar Rebelde</h3>
+                        <span class="price">S/ 26.00</span>
+                    </div>
+                    <p>Calamar frito, salsa acevichada, cebolla morada y rocoto suave.</p>
+                </div>
+            </div>
+
+            <!-- Atún Power -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" alt="Atún Power" class="card-img">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Atún Power</h3>
+                        <span class="price">S/ 24.00</span>
+                    </div>
+                    <p>Atún en salsa de la casa, palta, tomate, lechuga y mayonesa ligera.</p>
+                </div>
+            </div>
+
+            <!-- Pulpo del Puerto -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80" alt="Pulpo del Puerto" class="card-img">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Pulpo del Puerto</h3>
+                        <span class="price">S/ 32.00</span>
+                    </div>
+                    <p>Pulpo anticuchero, mayo de huacatay, vegetales frescos y pan brioche.</p>
+                </div>
+            </div>
+
+            <!-- Mixto Brava -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1534080391025-4979e8314470?w=500&q=80" alt="Mixto Brava" class="card-img">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Mixto Brava</h3>
+                        <span class="price">S/ 33.00</span>
+                    </div>
+                    <p>Camarón, calamar y pulpo, salsa golf, lechuga y cebolla encurtida. ¡PURA CHALACA!</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloques de abajo: Combos, Acompañamientos y Bebidas -->
+        <div class="menu-bottom">
+            
+            <!-- Combos -->
+            <div class="menu-list">
+                <h2>Combos</h2>
+                <div class="subtitle-list">Incluye: Papas + Bebida</div>
+                <div class="list-item"><span class="item-name">El Rey Camarón</span><span class="item-price">S/ 36.00</span></div>
+                <div class="list-item"><span class="item-name">La Ola Norteña</span><span class="item-price">S/ 34.00</span></div>
+                <div class="list-item"><span class="item-name">Calamar Rebelde</span><span class="item-price">S/ 34.00</span></div>
+                <div class="list-item"><span class="item-name">El Capitán Ceviche</span><span class="item-price">S/ 33.00</span></div>
+                <div class="list-item"><span class="item-name">Mixto Brava</span><span class="item-price">S/ 40.00</span></div>
+            </div>
+
+            <!-- Acompañamientos -->
+            <div class="menu-list">
+                <h2>Acompañamientos</h2>
+                <div class="subtitle-list">&nbsp;</div>
+                <div class="list-item"><span class="item-name">Papas Crocantes</span><span class="item-price">S/ 8.00</span></div>
+                <div class="list-item"><span class="item-name">Yuquitas Fritas</span><span class="item-price">S/ 8.00</span></div>
+                <div class="list-item"><span class="item-name">Chips de Plátano</span><span class="item-price">S/ 8.00</span></div>
+                <div class="list-item"><span class="item-name">Camote Frito</span><span class="item-price">S/ 8.00</span></div>
+                <div class="list-item"><span class="item-name">Aros de Cebolla</span><span class="item-price">S/ 8.00</span></div>
+                <div class="list-item"><span class="item-name">Choritos a la Chalaca</span><span class="item-price">S/ 18.00</span></div>
+            </div>
+
+            <!-- Bebidas -->
+            <div class="menu-list drinks-container">
+                <div>
+                    <h2>Bebidas</h2>
+                    <div class="subtitle-list">&nbsp;</div>
+                </div>
+                <div class="drinks-content">
+                    <div class="drinks-text">
+                        <div class="list-item"><span class="item-name">Chicha Morada</span><span class="item-price">S/ 6.00</span></div>
+                        <div class="list-item"><span class="item-name">Limonada</span><span class="item-price">S/ 6.00</span></div>
+                        <div class="list-item"><span class="item-name">Maracuyá</span><span class="item-price">S/ 7.00</span></div>
+                        <div class="list-item"><span class="item-name">Inca Kola</span><span class="item-price">S/ 6.00</span></div>
+                        <div class="list-item"><span class="item-name">Coca Cola</span><span class="item-price">S/ 6.00</span></div>
+                        <div class="list-item"><span class="item-name">Agua sin Gas</span><span class="item-price">S/ 4.00</span></div>
+                        <div class="list-item"><span class="item-name">Agua con Gas</span><span class="item-price">S/ 5.00</span></div>
+                    </div>
+                    <!-- Foto de Bebida de la carta -->
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200&q=80" alt="Bebidas Marea Brava" class="drink-img">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Número de Teléfono para Pedidos</p>
+        <div class="phone">999 666 999</div>
+    </footer>
+
+</body>
+  </html>
+  
